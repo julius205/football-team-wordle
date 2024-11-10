@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 type CardProps = {
   text?: number | string;
@@ -7,6 +7,7 @@ type CardProps = {
   isInSelectBar?: boolean;
   color?: string;
   backgroundImage?: string;
+  delay?: number;
 };
 
 const Card: React.FC<CardProps> = ({
@@ -16,16 +17,24 @@ const Card: React.FC<CardProps> = ({
   isInSelectBar = false,
   color,
   backgroundImage,
+  delay = 0,
 }) => {
+  const [showColor, setShowColor] = useState(false);
+
+  useEffect(() => {
+    const timeout = setTimeout(() => setShowColor(true));
+    return () => clearTimeout(timeout);
+  }, [delay]);
   return (
     <div
       style={{
-        backgroundColor: color || '#2E2E2E',
+        backgroundColor: showColor ? color || '#2E2E2E' : '#2E2E2E',
         backgroundImage: backgroundImage
           ? `url(${backgroundImage})`
           : undefined,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
+        transition: 'background-color 0.8s ease-in-out',
       }}
       className={`flex items-center justify-center text-white ${
         isInSelectBar
