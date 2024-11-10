@@ -19,14 +19,14 @@ export const headTitles = [
 const TeamGrid: React.FC<TeamGridProps> = ({ teams, onTeamGuess }) => {
   return (
     <div className="lg:min-w-[600px] mt-4">
-      <div className="lg:p-2 px-8 grid grid-cols-7">
+      <div className="lg:p-2 px-12 grid grid-cols-7">
         {headTitles.map((head) => (
           <div className="lg:text-xs text-[6px] font-light text-center">
             {head}
           </div>
         ))}
       </div>
-      <div className="lg:mt-2  -mt-1 flex flex-col items-center">
+      <div className="lg:mt-2 -mt-1 flex flex-col items-center">
         {teams.length > 0 ? (
           teams.map((team) => (
             <div key={team._id} className="p-2 flex justify-between">

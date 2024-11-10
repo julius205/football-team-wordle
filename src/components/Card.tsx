@@ -51,7 +51,7 @@ const Card: React.FC<CardProps> = ({
       ) : (
         <div
           className={`${
-            isInSelectBar ? `lg:text-lg text-[4px]` : `lg:text-2xl text-sm`
+            isInSelectBar ? `lg:text-lg text-[11px]` : `lg:text-2xl text-sm`
           } font-bold`}
         >
           {text && <p>{text}</p>}
