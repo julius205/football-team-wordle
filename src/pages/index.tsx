@@ -33,19 +33,15 @@ export default function Home() {
         }
       })
       .catch((error) => console.error(error));
-    fetchRandomTeam();
-  }, []);
 
-  useEffect(() => {
     const today = new Date().toISOString().slice(0, 10);
     const lastPlayDate = localStorage.getItem('lastPlayDate');
 
     if (lastPlayDate !== today) {
       localStorage.clear();
       localStorage.setItem('lastPlayDate', today);
-      fetchRandomTeam(); // neues zufälliges Team laden
+      fetchRandomTeam();
     } else {
-      // Local Storage laden, wenn es kein neuer Tag ist
       const storedGuessedTeams = JSON.parse(
         localStorage.getItem('guessedTeams') || '[]'
       );
@@ -95,22 +91,6 @@ export default function Home() {
       setAttempts(attempts + 1);
     }
   };
-
-  useEffect(() => {
-    const storedGuessedTeams = JSON.parse(
-      localStorage.getItem('guessedTeams') || '[]'
-    );
-    const storedGuessedCorrect =
-      localStorage.getItem('guessedCorrect') === 'true';
-    const storedAttempts = parseInt(
-      localStorage.getItem('attempts') || '0',
-      10
-    );
-
-    setGuessedTeams(storedGuessedTeams);
-    setGuessedCorrect(storedGuessedCorrect);
-    setAttempts(storedAttempts);
-  }, []);
 
   const availableTeams = allTeams.filter(
     (team) => !guessedTeams.some((guessedTeam) => guessedTeam._id === team._id)
