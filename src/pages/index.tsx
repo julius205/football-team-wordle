@@ -129,7 +129,7 @@ export default function Home() {
           <div>
             <div className="p-2 grid grid-cols-7 font-semibold">
               {headTitles.map((head) => (
-                <div className="lg:text-xs sm:text-[6px] text-[3px] font-thin text-center">
+                <div className="lg:text-xs text-[8px] font-light text-center">
                   {head}
                 </div>
               ))}

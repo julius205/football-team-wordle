@@ -21,7 +21,7 @@ const TeamGrid: React.FC<TeamGridProps> = ({ teams, onTeamGuess }) => {
     <div className="lg:min-w-[600px] mt-4">
       <div className="lg:p-2 px-8 grid grid-cols-7">
         {headTitles.map((head) => (
-          <div className="lg:text-xs sm:text-[6px] text-[3px] font-thin text-center">
+          <div className="lg:text-xs text-[6px] font-light text-center">
             {head}
           </div>
         ))}
