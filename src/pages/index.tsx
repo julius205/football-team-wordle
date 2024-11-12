@@ -88,6 +88,7 @@ export default function Home() {
         localStorage.setItem('guessedCorrect', 'false');
       }
 
+      //console.log('team ' + team.name + 'hinzugefügt');
       setAttempts(attempts + 1);
     }
   };

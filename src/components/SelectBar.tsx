@@ -26,6 +26,11 @@ const SelectBar: React.FC<SelectBarProps> = ({ teams, onTeamGuess }) => {
     setSearchText('');
   };
 
+  const handleTeamGuess = (team: Team) => {
+    onTeamGuess(team);
+    handleReset();
+  };
+
   return (
     <div className="lg:min-w-[600px] w-[400px]">
       <div style={{ position: 'relative' }}>
@@ -56,7 +61,7 @@ const SelectBar: React.FC<SelectBarProps> = ({ teams, onTeamGuess }) => {
 
       {isOpen && searchText && (
         <div className="mt-2 shadow-md">
-          <TeamGrid teams={filteredTeams} onTeamGuess={onTeamGuess} />
+          <TeamGrid teams={filteredTeams} onTeamGuess={handleTeamGuess} />
         </div>
       )}
     </div>
